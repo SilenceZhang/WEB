@@ -1,0 +1,8 @@
+<dwr>
+	<allow>	
+		<create creator="spring" javascript="Demo">
+			<param name="beanName" value="DWRTest"/>
+		</create>
+
+	</allow>
+</dwr>

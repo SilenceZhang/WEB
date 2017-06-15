@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>HelloDWR2</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+
+
+	<!-- 配置Dwr信息 -->
+	<servlet>
+		<servlet-name>DwrServlet</servlet-name>
+		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+		<!-- 是否允许调试，如果要在浏览器中调式则必须设置为true -->
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<!-- 是否进行日志管理，如果是要在这设置参数，通常省略 -->
+		<init-param>
+			<param-name>logLevel</param-name>
+			<param-value>WARN</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DwrServlet</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>

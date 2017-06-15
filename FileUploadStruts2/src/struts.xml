@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+	<!-- <constant name="struts.devMode" value="true" /> -->
+
+
+	<constant name="struts.multipart.maxSize" value="1000000" />
+	<package name="helloworld" extends="struts-default">
+		<action name="upload" class="com.test.action.UploadFileAction"
+			method="execute">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/jpeg,image/gif</param>
+			</interceptor-ref>
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+
+	</package>
+
+</struts>
+
+<!-- END SNIPPET: xworkSample -->
+

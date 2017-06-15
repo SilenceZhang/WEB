@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  
+  <filter>
+  	<filter-name>LogFilter</filter-name>
+  	<filter-class>com.test.filter.LogFilter</filter-class>
+  	<init-param>
+  		<param-name>Site</param-name>
+  		<param-value>cainiao jiaocheng</param-value>
+  	</init-param>
+ </filter>
+ <filter-mapping>
+ 	<filter-name>LogFilter</filter-name>
+ 	<url-pattern>/*</url-pattern>
+ </filter-mapping>
+  
+  <servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>com.test.servlet.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyServlet</servlet-name>
+    <url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>HelloWorld</servlet-name>
+    <servlet-class>com.test.servlet.HelloWorld</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloWorld</servlet-name>
+    <url-pattern>/HelloWorld</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>HelloForm</servlet-name>
+    <servlet-class>com.test.servlet.HelloForm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HelloForm</servlet-name>
+    <url-pattern>/HelloForm</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>DisplayHeader</servlet-name>
+    <servlet-class>com.test.servlet.DisplayHeader</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DisplayHeader</servlet-name>
+    <url-pattern>/DisplayHeader</url-pattern>
+  </servlet-mapping>
+</web-app>

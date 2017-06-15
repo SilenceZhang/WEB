@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+	<!-- <constant name="struts.devMode" value="true" /> -->
+
+
+	<package name="helloworld" extends="json-default">
+		<action name="getjson" class="com.micar.json.JSONAction"
+			method="execute">
+			<result type="json"/>
+		</action>
+	</package>
+
+</struts>
+
+<!-- END SNIPPET: xworkSample -->
+

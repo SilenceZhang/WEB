@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+
+	<!-- dbcp连接池 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/seat_manager"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="cbbukn"></property>
+		<!-- 最大连接数 -->
+		<property name="maxActive" value="100"></property>
+		<!-- 最大可空闲连接数 -->
+		<property name="maxIdle" value="30"></property>
+		<!-- 最大等待连接 -->
+		<property name="maxWait" value="500"></property>
+		<!-- 事务提交，true代表自动提交事物 -->
+		<property name="defaultAutoCommit" value="true"></property>
+
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/micar/pojo/User.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="UserDAO" class="com.micar.dao.impl.UserDAOImpl" scope="singleton">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<bean id="UserService" class="com.micar.service.impl.UserServiceImpl">
+		<property name="userdao" ref="UserDAO"></property>
+	</bean>
+
+	<bean id="RegisterAction" class="com.micar.action.RegisterAction"
+		scope="prototype">
+		<property name="userservice" ref="UserService"></property>
+	</bean>
+
+	<bean id="LoginAction" class="com.micar.action.LoginAction" scope="prototype">
+		<property name="userservice" ref="UserService"></property>
+	</bean>
+
+	<bean id="GetCarDataAction" class="com.micar.action.CarDataAction">
+	</bean>
+
+
+</beans>  

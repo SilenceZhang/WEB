@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+	<constant name="struts.action.excludePattern" value="/dwr.*"></constant>
+
+	<package name="login" extends="struts-default">
+		<action name="loginPro" class="loginAction" method="execute">
+			<result name="success">
+				welcome.jsp
+			</result>
+			<result name="error">
+				error.jsp
+			</result>
+		</action>
+		<!-- 让用户直接访问该应用时列出所有视图页面 -->
+		<action name="*">
+			<result name="success">/{1}.jsp</result>
+		</action>
+	</package>
+
+</struts>
+
+<!-- END SNIPPET: xworkSample -->
+
